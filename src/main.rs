@@ -21,7 +21,6 @@ struct Drive {
 
 #[tokio::main]
 async fn main() {
-    tracing_subscriber::fmt::init();
     let output = Command::new("/usr/sbin/megacli")
         .arg("-PDList")
         .arg("-aAll")
