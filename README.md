@@ -1,6 +1,6 @@
 # megacli ingestor
 
-This is a small rust program to read the status of a raid from ``megacli``
+This is a small rust program to read the status of a raid from ``megacli`` and ingest it into influxDB
 
 
 The command that is run to read the data is 
