@@ -22,26 +22,12 @@ jobs:
     strategy:
       fail-fast: false # don't fail other jobs if one fails
       matrix:
-        build_target: [linux-x86_64, linux-arm64, linux-armhf, macos-x86_64, windows-x86_64]
+        build_target: [linux-x86_64, macos-x86_64, windows-x86_64]
         include:
           - build_target: linux-x86_64
             os: ubuntu-latest
             container: rust
             target: x86_64-unknown-linux-gnu
-          - build_target: linux-arm64
-            os: ubuntu-latest
-            container: rustembedded/cross:aarch64-unknown-linux-gnu-0.2.1
-            target: aarch64-unknown-linux-gnu
-            dependencies: 'libssl-dev libssl-dev:arm64'
-            cross_arch: 'arm64'
-            pkg_config_path: '/usr/lib/aarch64-linux-gnu/pkgconfig/'
-          - build_target: linux-armhf
-            os: ubuntu-latest
-            container: rustembedded/cross:armv7-unknown-linux-gnueabihf-0.2.1
-            target: armv7-unknown-linux-gnueabihf
-            dependencies: 'libssl-dev libssl-dev:armhf'
-            cross_arch: 'armhf'
-            pkg_config_path: '/usr/lib/arm-linux-gnueabihf/pkgconfig/'
           - build_target: macos-x86_64
             os: macos-latest
             target: x86_64-apple-darwin
